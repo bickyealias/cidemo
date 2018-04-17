@@ -1,1 +1,1 @@
-RC 1.2 Hello, World!
+RC 1.3 Hello, World!
