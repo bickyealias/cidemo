@@ -29,7 +29,7 @@ echo M2_HOME = ${M2_HOME}
           steps {
             sh '''set +x
 echo "Deploying to Tomcat at http://tomcat:8080/myapp"
-curl -s --upload-file target/MyApp-1.0.war "http://admin1:bicky1122@localhost:8090/manager/text/deploy?path=/webapp&update=true&tag=${BUILD_TAG}"'''
+curl -s --upload-file **/*.war "http://admin1:bicky1122@localhost:8090/manager/text/deploy?path=/webapp&update=true&tag=${BUILD_TAG}"'''
           }
         }
       }
