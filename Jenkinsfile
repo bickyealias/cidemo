@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        sh 'mvn clean'
+        sh '''echo PATH = ${PATH}
+e ho M2HOME = ${M2HOME}
+mvn clean'''
       }
     }
   }
