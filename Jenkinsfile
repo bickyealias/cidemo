@@ -9,4 +9,7 @@ mvn clean'''
       }
     }
   }
+  environment {
+    M2_HOME = '/Users/bickyealias/Downloads/apache-maven-3.5.3/bin/mvn'
+  }
 }
