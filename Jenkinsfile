@@ -1,12 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('Initialize') {
+    stage('Package') {
       steps {
         sh '''echo PATH = ${PATH}
 echo M2_HOME = ${M2_HOME}
 /Users/bickyealias/Downloads/apache-maven-3.5.3/bin/mvn clean package'''
         archiveArtifacts(artifacts: '**/*.war', onlyIfSuccessful: true)
+      }
+    }
+    stage('Deploy-Staging') {
+      steps {
+        copyArtifacts(projectName: 'Package', filter: '**/*.war')
       }
     }
   }
