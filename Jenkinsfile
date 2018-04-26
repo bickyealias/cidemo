@@ -2,11 +2,20 @@ pipeline {
   agent any
   stages {
     stage('Package') {
-      steps {
-        sh '''echo PATH = ${PATH}
+      parallel {
+        stage('Package') {
+          steps {
+            sh '''echo PATH = ${PATH}
 echo M2_HOME = ${M2_HOME}
 /Users/bickyealias/Downloads/apache-maven-3.5.3/bin/mvn clean package'''
-        archiveArtifacts(artifacts: '**/*.war', onlyIfSuccessful: true)
+            archiveArtifacts(artifacts: '**/*.war', onlyIfSuccessful: true)
+          }
+        }
+        stage('StaticAnalysis') {
+          steps {
+            checkstyle(canRunOnFailed: true)
+          }
+        }
       }
     }
     stage('Deploy-Staging') {
