@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh '''echo PATH = ${PATH}
 echo M2_HOME = ${M2_HOME}
-mvn clean'''
+/Users/bickyealias/Downloads/apache-maven-3.5.3/bin/mvn clean'''
       }
     }
   }
