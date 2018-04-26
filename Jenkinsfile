@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Demo') {
+    stage('Initialize') {
       steps {
-        echo 'Demo Blue Ocean'
+        sh 'mvn clean'
       }
     }
   }
